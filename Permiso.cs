@@ -8,15 +8,20 @@ namespace TPSasiaReColombaraCenturion
 {
     internal class Permiso
     {
+        //declaro las variables
         private int codigo;
         private string nombre;
         private string descripcion;
         private List<Permiso> listaPermisos;
 
+        //constructor sin parametros
+        //inicializo la collections
         public Permiso()
         {
             listaPermisos = new List<Permiso>();
         }
+
+        //constructor con parametros
         public Permiso(int codigo, string nombre, string descripcion, List<Permiso> listaPermisos)
         {
             this.codigo = codigo;
@@ -25,17 +30,20 @@ namespace TPSasiaReColombaraCenturion
 
         }
 
+        //metodos getters y setters para porder acceder a las variables
         public int Codigo { get { return codigo; } set { codigo = value; } }
         public string Nombre { get { return nombre; } set { nombre = value; } }
         public string Descripcion { get { return descripcion; } set { descripcion = value; } }
         public List<Permiso> ListaPermisos { get { return listaPermisos; } set { listaPermisos = value; } }
 
+        //ToString
         public override string ToString()
         {
             return $"El codigo del permiso es: {codigo}, el nombre: {nombre}, la descripcion: {descripcion}";
         }
 
 
+        //listar todos los permisos
         public void listarPermiso()
         {
             foreach (var p in listaPermisos)
@@ -44,6 +52,7 @@ namespace TPSasiaReColombaraCenturion
             }
         }
 
+        //crear un alta de permiso
         public void altaPermiso()
         {
             int opcion;
@@ -77,6 +86,7 @@ namespace TPSasiaReColombaraCenturion
             } while (opcion == 1);
         }
 
+        //modificar un permiso
         public void modificarPermiso()
         {
             Console.WriteLine("Ingrese el codigo del permiso a modificar: ");
@@ -103,6 +113,7 @@ namespace TPSasiaReColombaraCenturion
             }
         }
 
+        //eliminar un permiso
         public void eliminarPermiso()
         {
             Console.WriteLine("Ingreese el codigo del permiso a eliminar: ");
@@ -124,6 +135,8 @@ namespace TPSasiaReColombaraCenturion
             }
 
         }
+
+        //menu para generar accesibilidad al usuario a cada metodo de la calse
         public void mostrarMenuPermiso()
         {
             int entrada;
