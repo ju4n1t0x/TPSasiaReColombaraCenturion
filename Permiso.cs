@@ -42,7 +42,7 @@ namespace TPSasiaReColombaraCenturion
 
 
         //listar todos los permisos
-        public void listarPermiso()
+        public static void listarPermiso()
         {
             foreach (var p in listaPermisos)
             {
@@ -51,7 +51,7 @@ namespace TPSasiaReColombaraCenturion
         }
 
         //crear un alta de permiso
-        public void altaPermiso()
+        public static void altaPermiso()
         {
             int opcion;
 
@@ -85,7 +85,7 @@ namespace TPSasiaReColombaraCenturion
         }
 
         //modificar un permiso
-        public void modificarPermiso()
+        public static void modificarPermiso()
         {
             Console.WriteLine("Ingrese el codigo del permiso a modificar: ");
             if (!int.TryParse(Console.ReadLine(), out int codigoModificador))
@@ -112,7 +112,7 @@ namespace TPSasiaReColombaraCenturion
         }
 
         //eliminar un permiso
-        public void eliminarPermiso()
+        public static void eliminarPermiso()
         {
             Console.WriteLine("Ingreese el codigo del permiso a eliminar: ");
             if (!int.TryParse(Console.ReadLine(), out int codigoEliminador))
@@ -135,7 +135,7 @@ namespace TPSasiaReColombaraCenturion
         }
 
         //menu para generar accesibilidad al usuario a cada metodo de la calse
-        public void mostrarMenuPermiso()
+        public static void mostrarMenuPermiso()
         {
             int entrada;
             do

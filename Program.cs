@@ -7,7 +7,7 @@ namespace TPSasiaReColombaraCenturion
     {
         static void Main(string[] args)
         {
-            Permiso permiso = new Permiso();
+            
 
             int entrada;
             do
@@ -29,7 +29,7 @@ namespace TPSasiaReColombaraCenturion
                 {
 
                     case 1:
-                        permiso.mostrarMenuPermiso();
+                        Permiso.mostrarMenuPermiso();
                         break;
                     case 2:
                         Console.WriteLine("Grupo");
