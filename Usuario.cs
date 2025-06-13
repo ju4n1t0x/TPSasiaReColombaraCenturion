@@ -14,13 +14,11 @@ namespace TPSasiaReColombaraCenturion
         private string email;
         private int telefono;
         private Grupo grupo;
-        private List<Permiso> listaPermisos;
+        private List<Permiso> listaPermisos = new List<Permiso>();
 
-        public Usuario()
-        {
-        }
+        public Usuario(){}
 
-        public Usuario(int codigo, string nombre, string password, string email, int telefono, Grupo grupo, List<Permiso> listaPermisos)
+        public Usuario(int codigo, string nombre, string password, string email, int telefono, Grupo grupo)
         {
             this.codigo = codigo;
             this.nombre = nombre;
@@ -28,7 +26,7 @@ namespace TPSasiaReColombaraCenturion
             this.email = email;
             this.telefono = telefono;
             this.grupo = grupo;
-            this.listaPermisos = listaPermisos;
+            
         }
         public int Codigo {get { return codigo; } set { this.codigo = value; }}
         public string Nombre {get { return nombre; } set { this.nombre = value; }}
@@ -37,10 +35,7 @@ namespace TPSasiaReColombaraCenturion
         public int Telefono { get { return telefono; } set { this.telefono = value; }}
         public Grupo Grupo { get { return grupo; } set { grupo = value; }}
 
-        public List<Permiso> ListaPermisos {
-            get { return listaPermisos; }
-            set { this.listaPermisos = value; }
-        }
+     
 
         public override string ToString()
         {
@@ -49,11 +44,12 @@ namespace TPSasiaReColombaraCenturion
                  $"grupo: {grupo.ToString()}, permisos: {listaPermisos.ToString()}";
         }
 
-        public void listarObjetos() { }
-        public void cargarObjeto() { }
-        public void modificarObjeto() { }
-        public void eliminarObjeto() { }
-        public void mostrarMenuGrupo()
+
+        public static void listarObjetos() { }
+        public static void cargarObjeto() { }
+        public static void modificarObjeto() { }
+        public static void eliminarObjeto() { }
+        public static void mostrarMenuGrupo()
         {
 
             Console.WriteLine("Ingrese una opcion: ");

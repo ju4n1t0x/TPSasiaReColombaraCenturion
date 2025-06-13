@@ -6,9 +6,8 @@ namespace TPSasiaReColombaraCenturion
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
             
-
             int entrada;
             do
             {
@@ -32,7 +31,7 @@ namespace TPSasiaReColombaraCenturion
                         Permiso.mostrarMenuPermiso();
                         break;
                     case 2:
-                        Console.WriteLine("Grupo");
+                        Grupo.mostrarMenuGrupo();
                         break;
                     case 3:
                         Console.WriteLine("Usuario");
