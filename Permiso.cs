@@ -12,17 +12,14 @@ namespace TPSasiaReColombaraCenturion
         private int codigo;
         private string nombre;
         private string descripcion;
-        private List<Permiso> listaPermisos;
+        public static List<Permiso> listaPermisos = new List<Permiso>();
 
         //constructor sin parametros
         //inicializo la collections
-        public Permiso()
-        {
-            listaPermisos = new List<Permiso>();
-        }
+        public Permiso(){}
 
         //constructor con parametros
-        public Permiso(int codigo, string nombre, string descripcion, List<Permiso> listaPermisos)
+        public Permiso(int codigo, string nombre, string descripcion)
         {
             this.codigo = codigo;
             this.nombre = nombre;
@@ -34,7 +31,6 @@ namespace TPSasiaReColombaraCenturion
         public int Codigo { get { return codigo; } set { codigo = value; } }
         public string Nombre { get { return nombre; } set { nombre = value; } }
         public string Descripcion { get { return descripcion; } set { descripcion = value; } }
-        public List<Permiso> ListaPermisos { get { return listaPermisos; } set { listaPermisos = value; } }
 
         //ToString
         public override string ToString()
