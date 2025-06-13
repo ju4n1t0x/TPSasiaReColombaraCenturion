@@ -1,0 +1,17 @@
+1
+2
+1
+cocinar
+este es el permiso cocinar
+1
+barrer
+este es el permiso barrer
+2
+5
+
+2
+2
+1
+tattoo
+2
+2
