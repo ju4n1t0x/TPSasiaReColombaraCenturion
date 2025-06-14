@@ -1,10 +1,17 @@
 ﻿
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TPSasiaReColombaraCenturion
 {
     class Program
     {
+
+
+        static List<Permiso> todosLosPermisos = new List<Permiso>();
+        static List<Grupo> listaGrupos  = new List<Grupo>();
+        
+
         static void Main(string[] args)
         {   
             
@@ -12,12 +19,16 @@ namespace TPSasiaReColombaraCenturion
             do
             {
 
-                Console.WriteLine("Bienvenidos al tp final");
-                Console.WriteLine("Ingrese una opcion");
-                Console.WriteLine("1- Permisos");
-                Console.WriteLine("2- Grupo");
-                Console.WriteLine("3- Usuario");
-                Console.WriteLine("4- Salir");
+                Console.WriteLine("╔═══════════════════════════════════╗");
+                Console.WriteLine("║        BIENVENIDOS AL TP FINAL    ║");
+                Console.WriteLine("╠═══════════════════════════════════╣");
+                Console.WriteLine("║ Ingrese una opción:               ║");
+                Console.WriteLine("║ 1 - Permisos                      ║");
+                Console.WriteLine("║ 2 - Grupo (Próximamente)          ║");
+                Console.WriteLine("║ 3 - Usuario (Próximamente)        ║");
+                Console.WriteLine("║ 4 - Salir                         ║");
+                Console.WriteLine("╚═══════════════════════════════════╝");
+                Console.Write("Seleccione una opción: ");
                 if (!int.TryParse(Console.ReadLine(), out entrada))
                 {
                     Console.WriteLine("Opción inválida. Intente de nuevo.");
@@ -27,11 +38,12 @@ namespace TPSasiaReColombaraCenturion
                 switch (entrada)
                 {
 
-                    case 1:
-                        Permiso.mostrarMenuPermiso();
+                    case 1:                 
+                        Permiso.mostrarMenuPermiso(todosLosPermisos);
                         break;
                     case 2:
-                        Grupo.mostrarMenuGrupo();
+                        
+                        Grupo.mostrarMenuGrupo(listaGrupos, todosLosPermisos);
                         break;
                     case 3:
                         Console.WriteLine("Usuario");
@@ -46,7 +58,10 @@ namespace TPSasiaReColombaraCenturion
 
                 }
             } while (entrada != 4);
+          
+        
         }
     }
-}
+    }
+
 

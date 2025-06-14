@@ -9,51 +9,49 @@ namespace TPSasiaReColombaraCenturion
     internal class Permiso
     {
         //declaro las variables
-        private int codigo;
-        private string nombre;
-        private string descripcion;
-        private static List<Permiso> listaPermisos = new List<Permiso>();
+        private int _codigo;
+        private string _nombre;
+        private string _descripcion;
+
 
         //constructor sin parametros
         //inicializo la collections
-        public Permiso(){}
+        public Permiso() { }
 
         //constructor con parametros
         public Permiso(int codigo, string nombre, string descripcion)
         {
-            this.codigo = codigo;
-            this.nombre = nombre;
-            this.descripcion = descripcion;
+            this._codigo = codigo;
+            this._nombre = nombre;
+            this._descripcion = descripcion;
 
         }
 
         //metodos getters y setters para porder acceder a las variables
-        public int Codigo { get { return codigo; } set { codigo = value; } }
-        public string Nombre { get { return nombre; } set { nombre = value; } }
-        public string Descripcion { get { return descripcion; } set { descripcion = value; } }
+        public int Codigo { get { return _codigo; } set { _codigo = value; } }
+        public string Nombre { get { return _nombre; } set { _nombre = value; } }
+        public string Descripcion { get { return _descripcion; } set { _descripcion = value; } }
 
-        public static List<Permiso> obtenerPermisos() {
-            return new List<Permiso>(listaPermisos);
-        }
+
 
         //ToString
         public override string ToString()
         {
-            return $"El codigo del permiso es: {codigo}, el nombre: {nombre}, la descripcion: {descripcion}";
+            return $"El codigo del permiso es: {Codigo}, el nombre: {Nombre}, la descripcion: {Descripcion}";
         }
 
 
         //listar todos los permisos
-        public static void listarPermiso()
+        public static void listarPermiso(List<Permiso> listaPermisos)
         {
             foreach (var p in listaPermisos)
             {
-                Console.Write(p.ToString());
+                Console.WriteLine(p.ToString());
             }
         }
 
         //crear un alta de permiso
-        public static void altaPermiso()
+        public static void altaPermiso(List<Permiso> listaPermisos)
         {
             int opcion;
 
@@ -71,23 +69,23 @@ namespace TPSasiaReColombaraCenturion
 
                 if (opcion == 1)
                 {
-                    Permiso permiso = new Permiso();
-                    permiso.Codigo = listaPermisos.Count + 1;
+                    Permiso nuevoPermiso = new Permiso();
+                    nuevoPermiso.Codigo = listaPermisos.Count + 1;
 
                     Console.Write("Ingrese el nombre del permiso: ");
-                    permiso.Nombre = Console.ReadLine();
+                    nuevoPermiso.Nombre = Console.ReadLine();
 
                     Console.Write("Ingrese la descripción del permiso: ");
-                    permiso.Descripcion = Console.ReadLine();
+                    nuevoPermiso.Descripcion = Console.ReadLine();
 
-                    listaPermisos.Add(permiso);
+                    listaPermisos.Add(nuevoPermiso);
                 }
 
             } while (opcion == 1);
         }
 
         //modificar un permiso
-        public static void modificarPermiso()
+        public static void modificarPermiso(List<Permiso> listaPermisos)
         {
             Console.WriteLine("Ingrese el codigo del permiso a modificar: ");
             if (!int.TryParse(Console.ReadLine(), out int codigoModificador))
@@ -114,7 +112,7 @@ namespace TPSasiaReColombaraCenturion
         }
 
         //eliminar un permiso
-        public static void eliminarPermiso()
+        public static void eliminarPermiso(List<Permiso> listaPermisos)
         {
             Console.WriteLine("Ingreese el codigo del permiso a eliminar: ");
             if (!int.TryParse(Console.ReadLine(), out int codigoEliminador))
@@ -137,18 +135,23 @@ namespace TPSasiaReColombaraCenturion
         }
 
         //menu para generar accesibilidad al usuario a cada metodo de la calse
-        public static void mostrarMenuPermiso()
+        public static void mostrarMenuPermiso(List<Permiso> listaPermisos)
         {
             int entrada;
             do
             {
 
-                Console.WriteLine("Ingrese una opcion: ");
-                Console.WriteLine("1- Listar");
-                Console.WriteLine("2- Alta");
-                Console.WriteLine("3- Modificacion");
-                Console.WriteLine("4- Eliminar");
-                Console.WriteLine("5- Salir");
+                Console.WriteLine("╔═══════════════════════════════════╗");
+                Console.WriteLine("║        BIENVENIDOS AL TP FINAL    ║");
+                Console.WriteLine("╠═══════════════════════════════════╣");
+                Console.WriteLine("║ Ingrese una opción:               ║");
+                Console.WriteLine("║ 1 - Listar                        ║");
+                Console.WriteLine("║ 2 - Alta                          ║");
+                Console.WriteLine("║ 3 - Modificar                     ║");
+                Console.WriteLine("║ 4 - Eliminar                      ║");
+                Console.WriteLine("║ 5 - Salir                         ║");
+                Console.WriteLine("╚═══════════════════════════════════╝");
+                Console.Write("Seleccione una opción: ");
                 if (!int.TryParse(Console.ReadLine(), out entrada))
                 {
                     Console.WriteLine("Opción inválida. Intente de nuevo.");
@@ -157,16 +160,16 @@ namespace TPSasiaReColombaraCenturion
                 switch (entrada)
                 {
                     case 1:
-                        listarPermiso();
+                        listarPermiso( listaPermisos);
                         break;
                     case 2:
-                        altaPermiso();
+                        altaPermiso( listaPermisos);
                         break;
                     case 3:
-                        modificarPermiso();
+                        modificarPermiso( listaPermisos);
                         break;
                     case 4:
-                        eliminarPermiso();
+                        eliminarPermiso( listaPermisos);
                         break;
                     case 5:
                         Console.WriteLine("Si esta seguro que desea salir presione Enter");
@@ -180,6 +183,5 @@ namespace TPSasiaReColombaraCenturion
 
 
         }
-
     }
 }
