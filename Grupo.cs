@@ -99,9 +99,57 @@ namespace TPSasiaReColombaraCenturion
              } while (opcion == 1);
              }
 
-         public static void modificarGrupos() { }
+        public static void modificarGrupos(List<Grupo> listaGrupos)
+        {
+            Console.WriteLine("Ingrese el codigo del grupo a modificar: ");
+            if (!int.TryParse(Console.ReadLine(), out int codigoModificador))
+            {
+                Console.WriteLine("Código inválido.");
+                return;
+            }
 
-         public static void eliminarGrupos() { }
+            int indice = listaGrupos.FindIndex(p => p.Codigo == codigoModificador);
+
+            if (indice == -1)
+            {
+                Console.WriteLine("Permiso no encontrado");
+            }
+            else
+            {
+                Console.WriteLine("Usted esta modificando el grupo: " + listaGrupos[indice].Nombre);
+                Console.WriteLine("Ingrese el nuevo Codigo para el grupo: ");
+                listaGrupos[indice].Codigo = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Ingrese el nuevo nombre del grupo");
+                listaGrupos[indice].Nombre = Console.ReadLine();
+                Console.WriteLine("Grupo modificado");
+            }
+        }
+
+        public static void eliminarGrupos(List<Grupo> listaGrupos) {
+            
+
+            Console.WriteLine("Ingreese el codigo del Grupo a eliminar: ");
+            if (!int.TryParse(Console.ReadLine(), out int codigoEliminador))
+            {
+                Console.WriteLine("Código inválido.");
+                return;
+            }
+            int indice = listaGrupos.FindIndex(p => p.Codigo == codigoEliminador);
+
+            if (indice == -1)
+            {
+                Console.WriteLine("Grupo no encontrado");
+            }
+            else
+            {
+                if (listaGrupos[indice].listaPermisosGrupo.Count == 0)
+                {
+                    listaGrupos.RemoveAt(indice);
+                    Console.WriteLine("El grupo se ha eliminado correctamente");
+                }
+                else { Console.WriteLine("El grupo no puede eliminarse porque contiene permisos asignados"); }
+            }
+        }
 
          public static void mostrarMenuGrupo(List<Grupo>listaGrupos, List<Permiso> listaPermisos)
          {
@@ -131,16 +179,20 @@ namespace TPSasiaReColombaraCenturion
                      cargarGrupos(listaGrupos, listaPermisos);
                      break;
                  case 3:
-                     Console.WriteLine("3- Modificacion");
+                        modificarGrupos(listaGrupos);   
                      break;
                  case 4:
-                     Console.WriteLine("4- Eliminar");
+                     eliminarGrupos(listaGrupos);
                      break;
                  case 5:
-                     Console.WriteLine("5- Salir");
+                     Console.WriteLine("Si esta seguro que desea salir presione Enter");
+                     Console.ReadLine();
+                     break;
+                 default:
+                     Console.WriteLine("Opción inválida.");
                      break;
 
-             }
+                }
              } while (entrada != 5);
          }
    

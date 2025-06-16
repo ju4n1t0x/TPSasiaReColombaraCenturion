@@ -10,6 +10,7 @@ namespace TPSasiaReColombaraCenturion
 
         static List<Permiso> todosLosPermisos = new List<Permiso>();
         static List<Grupo> listaGrupos  = new List<Grupo>();
+        static List<Usuario> listaUsuario = new List<Usuario>();
         
 
         static void Main(string[] args)
@@ -46,7 +47,7 @@ namespace TPSasiaReColombaraCenturion
                         Grupo.mostrarMenuGrupo(listaGrupos, todosLosPermisos);
                         break;
                     case 3:
-                        Console.WriteLine("Usuario");
+                        Usuario.mostrarMenuUsuario(listaUsuario, todosLosPermisos, listaGrupos);
                         break;
                     case 4:
                         Console.WriteLine("Si esta seguro que desea salir presione Enter");
